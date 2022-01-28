@@ -16,7 +16,7 @@ export default {
     return {
       url1: "https://rss.orf.at/news.xml",
       url2: "https://www.diepresse.com/rss/home",
-      url3: "https://www.derstandard.at/rss",
+      url3: "https://tvthek.orf.at/feed/rss",
     };
   },
 };
