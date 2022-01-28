@@ -1,17 +1,25 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Provider v-bind:rssUrl="url1" :maxArticles="10" />
+  <Provider v-bind:rssUrl="url2" :maxArticles="10" />
+  <Provider v-bind:rssUrl="url3" :maxArticles="10" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Provider from "./components/Provider.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    Provider,
+  },
+  data() {
+    return {
+      url1: "https://rss.orf.at/news.xml",
+      url2: "https://www.diepresse.com/rss/home",
+      url3: "https://www.derstandard.at/rss",
+    };
+  },
+};
 </script>
 
 <style>

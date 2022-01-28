@@ -14,8 +14,12 @@
   },
   "main": "index.js",
   "dependencies": {
+    "axios": "^0.25.0",
     "core-js": "^3.6.5",
-    "vue": "^3.0.0"
+    "moment": "^2.29.1",
+    "vue": "^3.0.0",
+    "xml-js": "^1.6.11",
+    "xml2js": "^0.4.23"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
