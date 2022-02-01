@@ -19,5 +19,33 @@
     "maxArticles": 10,
     "logo": "standard.jpg",
     "country": "aut"
+  },
+  {
+    "name": "APA",
+    "rssUrl": "https://www.ots.at/rss/index",
+    "maxArticles": 10,
+    "logo": "apa.jpg",
+    "country": "aut"
+  },
+  {
+    "name": "Kurier",
+    "rssUrl": "https://kurier.at/xml/rssd",
+    "maxArticles": 10,
+    "logo": "kurier.jpg",
+    "country": "aut"
+  },
+  {
+    "name": "NYT",
+    "rssUrl": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+    "maxArticles": 10,
+    "logo": "nyt.jpg",
+    "country": "us"
+  },
+  {
+    "name": "Guardian",
+    "rssUrl": "https://www.theguardian.com/uk/rss",
+    "maxArticles": 10,
+    "logo": "guardian.jpg",
+    "country": "uk"
   }
 ]
