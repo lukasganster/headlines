@@ -1,4 +1,11 @@
 <template>
+  <div class="header">
+    <h2>news.site</h2>
+    <h3>
+      <span class="date">{{ date }}</span>
+      <span class="time">{{ time }} Uhr</span>
+    </h3>
+  </div>
   <div id="providerGrid">
     <Provider
       v-for="provider in providerList"
@@ -14,6 +21,9 @@
 <script>
 import Provider from "../components/Provider.vue";
 import providerList from "../providers.json";
+const moment = require("moment"); // require
+require("moment/locale/de");
+moment().locale("de");
 
 export default {
   name: "News",
@@ -22,11 +32,15 @@ export default {
   },
   data() {
     return {
-      url1: "https://rss.orf.at/news.xml",
-      url2: "https://www.diepresse.com/rss/home",
-      url3: "https://www.derstandard.at/rss",
       providerList: providerList,
+      date: moment().format("ddd, DD.MM.YYYY"),
+      time: moment().format("HH:mm"),
     };
+  },
+  mounted() {
+    setInterval(() => {
+      this.timestamp = moment().format("DD.MM.YYYY HH:mm");
+    }, 500);
   },
 };
 </script>
@@ -36,22 +50,37 @@ export default {
   margin: 0;
   padding: 0;
   border: 0;
+  box-sizing: border-box !important;
 }
 body {
-  background-color: #2c3e50;
+  height: 100%;
+  width: 100vw;
+  box-sizing: border-box;
 }
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "SF UI Display", Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background-image: linear-gradient(180deg, #1b2128 0%, #2e3439 100%);
 }
 #providerGrid {
   display: flex;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
   box-sizing: border-box;
+}
+.header {
+  padding: 20px 0 40px 0;
+}
+h2 {
+  color: rgb(249, 217, 76);
+}
+h3 {
+  color: white;
+}
+.date {
+  opacity: 0.6;
+  margin-right: 10px;
 }
 </style>
