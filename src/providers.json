@@ -1,0 +1,23 @@
+[
+  {
+    "name": "ORF",
+    "rssUrl": "https://rss.orf.at/news.xml",
+    "maxArticles": 10,
+    "logo": "orf.jpg",
+    "country": "aut"
+  },
+  {
+    "name": "Presse",
+    "rssUrl": "https://www.diepresse.com/rss/home",
+    "maxArticles": 10,
+    "logo": "presse.jpg",
+    "country": "aut"
+  },
+  {
+    "name": "Standard",
+    "rssUrl": "https://www.derstandard.at/rss",
+    "maxArticles": 10,
+    "logo": "standard.jpg",
+    "country": "aut"
+  }
+]
