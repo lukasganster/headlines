@@ -1,13 +1,19 @@
 <template>
   <div id="providerGrid">
-    <Provider v-bind:rssUrl="url1" :maxArticles="10" />
-    <Provider v-bind:rssUrl="url2" :maxArticles="10" />
-    <Provider v-bind:rssUrl="url3" :maxArticles="10" />
+    <Provider
+      v-for="provider in providerList"
+      :key="provider"
+      :rssUrl="provider.rssUrl"
+      :maxArticles="provider.maxArticles"
+      :logo="provider.logo"
+      :country="provider.country"
+    />
   </div>
 </template>
 
 <script>
 import Provider from "../components/Provider.vue";
+import providerList from "../providers.json";
 
 export default {
   name: "News",
@@ -19,6 +25,7 @@ export default {
       url1: "https://rss.orf.at/news.xml",
       url2: "https://www.diepresse.com/rss/home",
       url3: "https://www.derstandard.at/rss",
+      providerList: providerList,
     };
   },
 };
@@ -29,6 +36,9 @@ export default {
   margin: 0;
   padding: 0;
   border: 0;
+}
+body {
+  background-color: #2c3e50;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -42,5 +52,6 @@ export default {
   display: flex;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
+  box-sizing: border-box;
 }
 </style>
