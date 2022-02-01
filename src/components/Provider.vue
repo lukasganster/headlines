@@ -1,5 +1,7 @@
 <template>
   <div class="provider">
+    <img :src="require('@/assets/img/' + logo)" class="logo" />
+    <img :src="require('@/assets/img/' + country + '.png')" class="country" />
     <ul>
       <li
         v-for="article in articles"
@@ -35,10 +37,11 @@ export default {
       type: Number,
       default: 10,
     },
+    logo: { type: String },
+    country: { type: String },
   },
   async mounted() {
     await this.getRss();
-    console.log(process.env.BASE_URL);
   },
   methods: {
     async getRss() {
@@ -99,17 +102,19 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .provider {
-  margin: 30px 0;
-  background: lightblue;
   display: inline-block;
   scroll-snap-align: start;
+  margin: 50px;
+  box-sizing: border-box;
 }
 ul {
   width: 100vw;
-  margin: 10px;
-  padding: 0px;
+  height: 100vh;
+  padding: 30px;
+  box-sizing: border-box;
 }
 .article {
+  background: rgba(212, 212, 212, 0.081);
   cursor: pointer;
   display: block;
   text-align: left;
@@ -117,6 +122,8 @@ ul {
   border-bottom: 1px solid #e7e7e7;
   padding: 10px 0;
   transition: 0.2s linear;
+  color: white;
+  font-family: "SF UI Display";
 }
 .article:hover {
   background-color: rgba(0, 0, 0, 0.1);
@@ -132,5 +139,10 @@ ul {
   position: absolute;
   transform: scale(0.5);
   right: 0;
+}
+.logo,
+.country {
+  max-height: 50px;
+  margin: 0 20px;
 }
 </style>
