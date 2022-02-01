@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="provider">
     <ul>
       <li
         v-for="article in articles"
@@ -23,6 +23,7 @@ export default {
   data() {
     return {
       articles: null,
+      API_URL: "https://www.lukasganster.com/projects/Api/news.php?rssUrl=",
     };
   },
   props: {
@@ -36,17 +37,16 @@ export default {
     },
   },
   async mounted() {
-    console.log(this.rssUrl);
     await this.getRss();
+    console.log(process.env.BASE_URL);
   },
   methods: {
     async getRss() {
       axios({
-        url: this.rssUrl,
+        url: this.API_URL + this.rssUrl,
         method: "get",
       })
         .then((response) => {
-          console.log(response);
           return response.data;
         })
         .then((str) => new window.DOMParser().parseFromString(str, "text/xml"))
@@ -58,23 +58,25 @@ export default {
         });
     },
     getArticle(item) {
-      const title = item.querySelector("title").textContent;
+      let title = item.querySelector("title").textContent;
       const link = item.querySelector("link").textContent;
       const dateString = item.querySelector("pubDate")
         ? item.querySelector("pubDate").textContent
         : item.querySelector("date").textContent;
       const date = dateString ? moment(dateString) : "";
       const dateFormatted = date ? date.format("HH:mm") : "";
-      const subject = item.querySelector("subject")
-        ? item.querySelector("subject").textContent
-        : item.querySelector("category").textContent;
+      let isPremium = false;
+      if (title.includes("premium")) {
+        title = title.replace("[premium]", "");
+        isPremium = true;
+      }
       return {
         title,
         link,
         dateString,
         dateFormatted,
         date,
-        subject,
+        isPremium,
       };
     },
     getArticles(items, max = 10) {
@@ -96,9 +98,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.provider {
+  margin: 30px 0;
+  background: lightblue;
+  display: inline-block;
+  scroll-snap-align: start;
+}
 ul {
-  margin: 0;
-  padding: 0;
+  width: 100vw;
+  margin: 10px;
+  padding: 0px;
 }
 .article {
   cursor: pointer;
