@@ -1,7 +1,9 @@
 <template>
   <div class="provider">
-    <img :src="require('@/assets/img/' + logo)" class="logo" />
-    <img :src="require('@/assets/img/' + country + '.png')" class="country" />
+    <div class="providerImages">
+      <img :src="require('@/assets/img/' + logo)" class="logo" />
+      <img :src="require('@/assets/img/' + country + '.png')" class="country" />
+    </div>
     <ul>
       <li
         v-for="article in articles"
@@ -9,8 +11,10 @@
         class="article"
         @click="openLink(article)"
       >
-        <span class="title">{{ article.title }}</span>
-        <span class="date">{{ article.dateFormatted }} Uhr</span>
+        <span class="title" :class="{ hasOpened: article.hasOpened }">{{
+          article.title
+        }}</span>
+        <span class="time">{{ article.dateFormatted }}</span>
       </li>
     </ul>
   </div>
@@ -92,7 +96,7 @@ export default {
       return articles;
     },
     openLink(article) {
-      console.log(article);
+      article.hasOpened = true;
       window.open(article.link, "_blank");
     },
   },
@@ -104,45 +108,59 @@ export default {
 .provider {
   display: inline-block;
   scroll-snap-align: start;
-  margin: 50px;
+  margin: 0 50px;
   box-sizing: border-box;
 }
 ul {
   width: 100vw;
-  height: 100vh;
-  padding: 30px;
+  padding: 20px;
   box-sizing: border-box;
 }
 .article {
   background: rgba(212, 212, 212, 0.081);
   cursor: pointer;
-  display: block;
+  display: grid;
+  grid-template-columns: 20px 1fr 30px;
   text-align: left;
   position: relative;
   border-bottom: 1px solid #e7e7e7;
-  padding: 10px 0;
+  padding: 10px 7px;
   transition: 0.2s linear;
   color: white;
   font-family: "SF UI Display";
+  align-items: center;
 }
 .article:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 .article::before {
-  content: "-";
+  content: "‣";
   padding: 0 5px;
 }
 .title {
   text-align: left;
 }
-.date {
-  position: absolute;
+.hasOpened {
+  opacity: 0.6;
+}
+.time {
   transform: scale(0.5);
-  right: 0;
+}
+.providerImages {
+  display: block;
+  min-height: 50px;
 }
 .logo,
 .country {
   max-height: 50px;
   margin: 0 20px;
+}
+
+.logo {
+  float: left;
+  max-width: 60%;
+}
+.country {
+  float: right;
 }
 </style>
