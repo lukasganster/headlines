@@ -2,14 +2,14 @@
   {
     "name": "ORF",
     "rssUrl": "https://rss.orf.at/news.xml",
-    "maxArticles": 10,
+    "maxArticles": 9,
     "logo": "orf.jpg",
     "country": "aut"
   },
   {
     "name": "Presse",
     "rssUrl": "https://www.diepresse.com/rss/home",
-    "maxArticles": 9,
+    "maxArticles": 8,
     "logo": "presse.jpg",
     "country": "aut"
   },
@@ -27,25 +27,54 @@
     "logo": "apa.jpg",
     "country": "aut"
   },
+
+  {
+    "name": "Die Zeit",
+    "rssUrl": "https://newsfeed.zeit.de/index",
+    "maxArticles": 7,
+    "logo": "zeit.jpg",
+    "country": "de"
+  },
   {
     "name": "Kurier",
     "rssUrl": "https://kurier.at/xml/rssd",
-    "maxArticles": 10,
+    "maxArticles": 8,
     "logo": "kurier.jpg",
     "country": "aut"
   },
   {
     "name": "NYT",
     "rssUrl": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
-    "maxArticles": 10,
+    "maxArticles": 8,
     "logo": "nyt.jpg",
     "country": "us"
   },
   {
     "name": "Guardian",
     "rssUrl": "https://www.theguardian.com/uk/rss",
-    "maxArticles": 10,
+    "maxArticles": 7,
     "logo": "guardian.jpg",
     "country": "uk"
+  },
+  {
+    "name": "FAZ",
+    "rssUrl": "https://www.theguardian.com/uk/rss",
+    "maxArticles": 7,
+    "logo": "faz.jpg",
+    "country": "de"
+  },
+  {
+    "name": "WZ",
+    "rssUrl": "https://www.wienerzeitung.at/_em_daten/_module/10001.rss",
+    "maxArticles": 7,
+    "logo": "wienerzeitung.jpg",
+    "country": "aut"
+  },
+  {
+    "name": "NZZ",
+    "rssUrl": "https://www.nzz.ch/recent.rss",
+    "maxArticles": 6,
+    "logo": "nzz.jpg",
+    "country": "ch"
   }
 ]
