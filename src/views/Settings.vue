@@ -9,6 +9,14 @@
       <span class="time">{{ time }} Uhr</span>
     </h3>
   </div>
+  <div>
+    <p style="color: white">
+      Version 0.0.1. Made with ❤️ in Austria by
+      <a href="https://www.lukasganster.com" style="color: lightblue"
+        >lukasganster</a
+      >
+    </p>
+  </div>
   <div id="providerSelectGrid">
     <div
       v-for="provider in providerList"
