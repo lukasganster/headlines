@@ -10,8 +10,8 @@
     </h3>
   </div>
   <div>
-    <p style="color: white">
-      Version 0.0.1. Made with ❤️ in Austria by
+    <p style="color: white; margin: 0 auto 20px auto; width: 90%">
+      Version 0.0.1.<br />Made with ❤️ in Austria by
       <a href="https://www.lukasganster.com" style="color: lightblue"
         >lukasganster</a
       >
@@ -140,42 +140,42 @@ input[type="checkbox"] {
 label {
   cursor: pointer;
   text-indent: -9999px;
-  width: 100px;
-  height: 50px;
+  width: 70px;
+  height: 35px;
   background: grey;
   display: block;
-  border-radius: 100px;
+  border-radius: 35px;
   position: relative;
 }
 label:after {
   content: "";
   position: absolute;
-  top: 5px;
-  left: 5px;
-  width: 40px;
-  height: 40px;
+  top: 0px;
+  left: 0px;
+  width: 35px;
+  height: 35px;
   background: #fff;
-  border-radius: 90px;
+  border-radius: 35px;
   transition: 0.3s;
 }
 input:checked + label {
   background: rgb(249, 217, 76);
 }
 input:checked + label:after {
-  left: calc(100% - 5px);
+  left: calc(100%);
   transform: translateX(-100%);
 }
 label:active:after {
-  width: 100px;
+  width: 50px;
 }
 .providerSelect {
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
   display: flex;
   margin-bottom: 20px;
 }
 .providerSelect img {
-  max-height: 50px;
+  max-height: 35px;
   max-width: 200px;
   margin-left: 30px;
 }
