@@ -1,6 +1,9 @@
 <template>
   <div class="header">
-    <h2>news.site</h2>
+    <h2>
+      <router-link to="/"><span class="active">News</span></router-link>
+      <router-link to="/settings"><span>Einstellungen</span></router-link>
+    </h2>
     <h3>
       <span class="date">{{ date }}</span>
       <span class="time">{{ time }} Uhr</span>
@@ -16,6 +19,10 @@
       :country="provider.country"
     />
   </div>
+  <h2 v-if="providerList.length == 0" style="color: white">
+    Du hast aktuell keine Newsanbieter ausgewählt. <br />
+    <span style="font-size: 200%">😞</span>
+  </h2>
 </template>
 
 <script>
@@ -41,6 +48,23 @@ export default {
     setInterval(() => {
       this.timestamp = moment().format("DD.MM.YYYY HH:mm");
     }, 500);
+    this.loadSettings();
+  },
+  methods: {
+    loadSettings() {
+      let settings = localStorage.getItem("providers");
+      if (settings) {
+        settings = JSON.parse(settings);
+        let selectedProviders = settings.filter((p) => p.selected);
+        let showProviders = [];
+        this.providerList.forEach((p) => {
+          selectedProviders.forEach((sP) => {
+            if (p.name == sP.name) showProviders.push(p);
+          });
+        });
+        this.providerList = showProviders;
+      }
+    },
   },
 };
 </script>
@@ -63,6 +87,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   background-image: linear-gradient(180deg, #1b2128 0%, #2e3439 100%);
+  overflow: hidden;
+  height: 100vh;
 }
 #providerGrid {
   display: flex;
@@ -73,14 +99,22 @@ body {
 .header {
   padding: 20px 0 40px 0;
 }
-h2 {
+h2 span.active {
   color: rgb(249, 217, 76);
+  font-weight: 700;
+  border-bottom: 2px solid #fad94c;
+}
+h2 span {
+  color: rgb(112, 112, 112);
+  margin: 0 10px;
+  font-weight: 400;
 }
 h3 {
+  margin-top: 10px;
   color: white;
 }
 .date {
-  opacity: 0.6;
+  color: rgb(112, 112, 112);
   margin-right: 10px;
 }
 </style>
