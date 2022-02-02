@@ -9,21 +9,21 @@
   {
     "name": "Presse",
     "rssUrl": "https://www.diepresse.com/rss/home",
-    "maxArticles": 10,
+    "maxArticles": 9,
     "logo": "presse.jpg",
     "country": "aut"
   },
   {
     "name": "Standard",
     "rssUrl": "https://www.derstandard.at/rss",
-    "maxArticles": 10,
+    "maxArticles": 8,
     "logo": "standard.jpg",
     "country": "aut"
   },
   {
     "name": "APA",
     "rssUrl": "https://www.ots.at/rss/index",
-    "maxArticles": 10,
+    "maxArticles": 8,
     "logo": "apa.jpg",
     "country": "aut"
   },
