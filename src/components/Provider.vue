@@ -110,6 +110,7 @@ export default {
   scroll-snap-align: start;
   margin: 0 50px;
   box-sizing: border-box;
+  max-height: 100vh;
 }
 ul {
   width: 100vw;
@@ -127,7 +128,7 @@ ul {
   padding: 10px 7px;
   transition: 0.2s linear;
   color: white;
-  font-family: "SF UI Display";
+  font-family: "SF UI Display", sans-serif;
   align-items: center;
 }
 .article:hover {
