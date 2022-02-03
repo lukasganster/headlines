@@ -49,7 +49,6 @@ export default {
       this.date = moment().format("ddd, DD.MM.YYYY");
       this.time = moment().format("HH:mm");
     }, 500);
-
     this.loadSettings();
   },
   methods: {

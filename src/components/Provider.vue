@@ -16,6 +16,7 @@
         }}</span>
         <span class="time">{{ article.dateFormatted }}</span>
       </li>
+      <p v-if="articles === null">Lade Daten...</p>
     </ul>
   </div>
 </template>
