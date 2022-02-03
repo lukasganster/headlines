@@ -8,6 +8,18 @@
 
 <style>
 @import url("http://fonts.cdnfonts.com/css/sf-ui-display");
+html,
+body,
+#app {
+  height: 100%;
+}
+#app {
+  background: linear-gradient(180deg, #1b2128 0%, #2e3439 100%);
+}
+html {
+  background: #2e3439;
+  background-repeat: no-repeat;
+}
 a {
   text-decoration: none;
   cursor: pointer;
