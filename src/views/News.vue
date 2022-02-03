@@ -60,10 +60,15 @@ export default {
         let showProviders = [];
         this.providerList.forEach((p) => {
           selectedProviders.forEach((sP) => {
-            if (p.name == sP.name) showProviders.push(p);
+            if (p.name == sP.name) {
+              p.index = sP.index;
+              showProviders.push(p);
+            }
           });
         });
-        this.providerList = showProviders;
+        this.providerList = showProviders.sort((a, b) =>
+          a.index > b.index ? 1 : -1
+        );
       }
     },
   },

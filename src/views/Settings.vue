@@ -18,19 +18,31 @@
     </p>
   </div>
   <div id="providerSelectGrid">
-    <div
-      v-for="provider in providerList"
-      :key="provider"
-      class="providerSelect"
+    <draggable
+      v-model="providerList"
+      @start="drag = true"
+      @end="drag = false"
+      item-key="id"
+      tag="transition-group"
+      :component-data="{ name: 'fade' }"
     >
-      <input type="checkbox" :id="provider.name" v-model="provider.selected" />
-      <label :for="provider.name">Toggle</label>
-      <img :src="require('@/assets/img/' + provider.logo)" class="logo" />
-    </div>
+      <template #item="{ element }">
+        <div class="providerSelect">
+          <input
+            type="checkbox"
+            :id="element.name"
+            v-model="element.selected"
+          />
+          <label :for="element.name">Toggle</label>
+          <img :src="require('@/assets/img/' + element.logo)" class="logo" />
+        </div>
+      </template>
+    </draggable>
   </div>
 </template>
 
 <script>
+import draggable from "vuedraggable";
 import providerList from "../providers.json";
 const moment = require("moment"); // require
 require("moment/locale/de");
@@ -38,12 +50,13 @@ moment().locale("de");
 
 export default {
   name: "Settings",
-  components: {},
+  components: { draggable },
   data() {
     return {
       providerList: providerList,
       date: moment().format("ddd, DD.MM.YYYY"),
       time: moment().format("HH:mm"),
+      drag: false,
     };
   },
   watch: {
@@ -59,6 +72,7 @@ export default {
       let saveObject = providerList.map((p) => {
         return {
           name: p.name,
+          index: providerList.indexOf(p),
           selected: p.selected ? true : false,
         };
       });
@@ -72,9 +86,13 @@ export default {
         console.log(selectedProviders);
         this.providerList.forEach((p) => {
           selectedProviders.forEach((sP) => {
+            p.index = sP.index;
             if (p.name == sP.name) p.selected = true;
           });
         });
+        this.providerList = this.providerList.sort((a, b) =>
+          a.index > b.index ? 1 : -1
+        );
       } else {
         console.log("No settings found");
         this.providerList.map((p) => (p.selected = true));
@@ -129,6 +147,7 @@ label:active:after {
   width: 50px;
 }
 .providerSelect {
+  cursor: pointer;
   width: 80%;
   margin: 0 auto;
   display: flex;
