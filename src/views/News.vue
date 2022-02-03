@@ -46,8 +46,10 @@ export default {
   },
   mounted() {
     setInterval(() => {
-      this.timestamp = moment().format("DD.MM.YYYY HH:mm");
+      this.date = moment().format("ddd, DD.MM.YYYY");
+      this.time = moment().format("HH:mm");
     }, 500);
+
     this.loadSettings();
   },
   methods: {
