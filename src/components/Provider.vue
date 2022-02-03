@@ -16,7 +16,11 @@
         }}</span>
         <span class="time">{{ article.dateFormatted }}</span>
       </li>
-      <p v-if="articles === null">Lade Daten...</p>
+      <img
+        v-if="articles === null"
+        src="https://c.tenor.com/I6kN-6X7nhAAAAAi/loading-buffering.gif"
+        style="max-width: 20%; margin: 50px auto 0 auto"
+      />
     </ul>
   </div>
 </template>
