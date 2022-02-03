@@ -11,7 +11,7 @@
   </div>
   <div>
     <p style="color: white; margin: 0 auto 20px auto; width: 90%">
-      Version 0.0.1.<br />Made with ❤️ in Austria by
+      Version 0.0.2.<br />Made with ❤️ in Austria by
       <a href="https://www.lukasganster.com" style="color: lightblue"
         >lukasganster</a
       >
@@ -91,47 +91,6 @@ export default {
 </script>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box !important;
-}
-body {
-  height: 100%;
-  width: 100vw;
-  box-sizing: border-box;
-}
-#app {
-  font-family: "SF UI Display", Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  background-image: linear-gradient(180deg, #1b2128 0%, #2e3439 100%);
-  overflow: hidden;
-  height: 100vh;
-}
-.header {
-  padding: 20px 0 40px 0;
-}
-h2 span.active {
-  color: rgb(249, 217, 76);
-  font-weight: 700;
-  border-bottom: 2px solid #fad94c;
-}
-h2 span {
-  color: rgb(112, 112, 112);
-  margin: 0 10px;
-  font-weight: 400;
-}
-h3 {
-  margin-top: 10px;
-  color: white;
-}
-.date {
-  color: rgb(112, 112, 112);
-  margin-right: 10px;
-}
 input[type="checkbox"] {
   height: 0;
   width: 0;
@@ -178,5 +137,8 @@ label:active:after {
   max-height: 35px;
   max-width: 200px;
   margin-left: 30px;
+}
+#providerSelectGrid {
+  padding: 20px 0 40px 0;
 }
 </style>

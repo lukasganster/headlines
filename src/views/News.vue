@@ -87,8 +87,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   background-image: linear-gradient(180deg, #1b2128 0%, #2e3439 100%);
-  overflow: hidden;
-  height: 100vh;
 }
 #providerGrid {
   display: flex;
@@ -96,6 +94,32 @@ body {
   scroll-snap-type: x mandatory;
   box-sizing: border-box;
 }
+@media screen and (min-width: 650px) {
+  #providerGrid {
+    width: 90%;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(400px, auto);
+    margin: 0 auto;
+    overflow: scroll;
+  }
+  ul {
+    width: auto !important;
+  }
+  .provider {
+    margin: 0 !important;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 10px 5px;
+    border-radius: 10px;
+  }
+}
+@media screen and (min-width: 900px) {
+  #providerGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .header {
   padding: 20px 0 40px 0;
 }

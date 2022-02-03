@@ -110,7 +110,7 @@ export default {
   scroll-snap-align: start;
   margin: 0 50px;
   box-sizing: border-box;
-  max-height: 100vh;
+  height: 100%;
 }
 ul {
   width: 100vw;
@@ -149,11 +149,11 @@ ul {
 }
 .providerImages {
   display: block;
-  min-height: 50px;
+  min-height: 40px;
 }
 .logo,
 .country {
-  max-height: 50px;
+  max-height: 40px;
   margin: 0 20px;
 }
 
