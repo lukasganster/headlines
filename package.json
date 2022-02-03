@@ -21,6 +21,7 @@
     "vue": "^3.0.0",
     "vue-pwa-asset-generator": "^1.6.1",
     "vue-router": "^4.0.12",
+    "vuedraggable": "^4.1.0",
     "xml-js": "^1.6.11",
     "xml2js": "^0.4.23"
   },
