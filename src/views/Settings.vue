@@ -34,7 +34,9 @@
             v-model="element.selected"
           />
           <label :for="element.name">Toggle</label>
-          {{ element.index }}
+          <span style="color: white; display: grid; margin-left: 15px">
+            {{ element.index }}
+          </span>
           <img :src="require('@/assets/img/' + element.logo)" class="logo" />
         </div>
       </template>
@@ -150,7 +152,7 @@ label:active:after {
 }
 .providerSelect {
   cursor: pointer;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   display: flex;
   margin-bottom: 20px;
