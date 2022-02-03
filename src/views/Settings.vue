@@ -34,6 +34,7 @@
             v-model="element.selected"
           />
           <label :for="element.name">Toggle</label>
+          {{ element.index }}
           <img :src="require('@/assets/img/' + element.logo)" class="logo" />
         </div>
       </template>
@@ -72,7 +73,7 @@ export default {
       let saveObject = providerList.map((p) => {
         return {
           name: p.name,
-          index: providerList.indexOf(p),
+          index: providerList.indexOf(p) + 1,
           selected: p.selected ? true : false,
         };
       });
@@ -81,13 +82,13 @@ export default {
     loadSettings() {
       let settings = localStorage.getItem("providers");
       if (settings) {
-        settings = JSON.parse(settings);
-        let selectedProviders = settings.filter((p) => p.selected);
-        console.log(selectedProviders);
-        this.providerList.forEach((p) => {
+        let selectedProviders = JSON.parse(settings);
+        this.providerList.map((p) => {
           selectedProviders.forEach((sP) => {
-            p.index = sP.index;
-            if (p.name == sP.name) p.selected = true;
+            if (p.name == sP.name) {
+              p.index = sP.index;
+              p.selected = true;
+            }
           });
         });
         this.providerList = this.providerList.sort((a, b) =>
@@ -96,6 +97,7 @@ export default {
       } else {
         console.log("No settings found");
         this.providerList.map((p) => (p.selected = true));
+        this.providerList.map((p, index) => (p.index = index + 1));
       }
     },
   },
