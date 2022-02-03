@@ -11,7 +11,7 @@
   </div>
   <div>
     <p style="color: white; margin: 0 auto 20px auto; width: 90%">
-      Version 0.0.2.<br />Made with ❤️ in Austria by
+      Version 0.0.3.<br />Made with ❤️ in Austria by
       <a href="https://www.lukasganster.com" style="color: lightblue"
         >lukasganster</a
       >
@@ -28,15 +28,15 @@
     >
       <template #item="{ element }">
         <div class="providerSelect">
-          <input
-            type="checkbox"
-            :id="element.name"
-            v-model="element.selected"
-          />
-          <label :for="element.name">Toggle</label>
-          <span style="color: white; display: grid; margin-left: 15px">
-            {{ element.index }}
-          </span>
+          <span class="providerIndex"> #{{ element.index }} </span>
+          <div>
+            <input
+              type="checkbox"
+              :id="element.name"
+              v-model="element.selected"
+            />
+            <label :for="element.name">Toggle</label>
+          </div>
           <img :src="require('@/assets/img/' + element.logo)" class="logo" />
         </div>
       </template>
@@ -157,10 +157,21 @@ label:active:after {
   display: flex;
   margin-bottom: 20px;
 }
+.providerSelect > div {
+  display: grid;
+}
 .providerSelect img {
   max-height: 35px;
   max-width: 200px;
-  margin-left: 30px;
+  margin-left: 10px;
+}
+.providerIndex {
+  display: grid;
+  justify-content: center;
+  color: white;
+  align-items: center;
+  padding-left: 5px;
+  min-width: 50px;
 }
 #providerSelectGrid {
   padding: 20px 0 40px 0;
