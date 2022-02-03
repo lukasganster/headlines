@@ -99,19 +99,20 @@ body {
   scroll-snap-type: x mandatory;
   box-sizing: border-box;
 }
-* ::-webkit-scrollbar {
-  width: 40px;
+@media screen and (max-width: 650px) {
+  * ::-webkit-scrollbar {
+    width: 40px;
+  }
+  * ::-webkit-scrollbar-thumb {
+    background: rgb(249, 217, 76);
+    border-radius: 10px;
+    width: 50px;
+  }
+  *::-webkit-scrollbar-track {
+    background: rgba(221, 221, 221, 0.046);
+    border-radius: 10px;
+  }
 }
-* ::-webkit-scrollbar-thumb {
-  background: rgb(249, 217, 76);
-  border-radius: 10px;
-  width: 50px;
-}
-*::-webkit-scrollbar-track {
-  background: rgba(221, 221, 221, 0.046);
-  border-radius: 10px;
-}
-
 @media screen and (min-width: 650px) {
   #providerGrid {
     width: 90%;
