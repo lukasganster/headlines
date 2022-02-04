@@ -9,14 +9,7 @@
       <span class="time">{{ time }} Uhr</span>
     </h3>
   </div>
-  <div>
-    <p style="color: white; margin: 0 auto 20px auto; width: 90%">
-      Version 0.0.3.<br />Made with ❤️ in Austria by
-      <a href="https://www.lukasganster.com" style="color: lightblue"
-        >lukasganster</a
-      >
-    </p>
-  </div>
+
   <div class="section">
     <h2 class="subtitle">Preferences ⚙️</h2>
 
@@ -24,14 +17,26 @@
       <div>
         <input
           type="checkbox"
-          :id="basicSettings.showProvidername"
+          id="showProvidername"
           v-model="basicSettings.showProvidername"
         />
-        <label :for="basicSettings.showProvidername">Toggle</label>
+        <label for="showProvidername">Toggle</label>
       </div>
       <span class="providerIndex"
-        >Show the icon and the name for the provider</span
+        >Show the icon and the name for the provider.</span
       >
+    </div>
+
+    <div class="providerSelect">
+      <div>
+        <input
+          type="checkbox"
+          id="shuffleProviders"
+          v-model="basicSettings.shuffleProviders"
+        />
+        <label for="shuffleProviders">Toggle</label>
+      </div>
+      <span class="providerIndex">Shuffle the providers on every reload.</span>
     </div>
   </div>
   <div class="section" id="providerSelectGrid">
@@ -65,6 +70,15 @@
       </template>
     </draggable>
   </div>
+  <div class="section">
+    <h2 class="subtitle">About 💡</h2>
+    <p style="color: white; padding: 0 auto 40px auto">
+      <b>headlines </b> - Version 0.0.4<br />Made with ❤️ in Austria by
+      <a href="https://www.lukasganster.com" style="color: lightblue"
+        >lukasganster</a
+      >
+    </p>
+  </div>
 </template>
 
 <script>
@@ -85,6 +99,7 @@ export default {
       drag: false,
       basicSettings: {
         showProvidername: false,
+        shuffleProviders: false,
       },
     };
   },

@@ -37,7 +37,7 @@ a {
 h2.subtitle {
   color: white;
   margin-bottom: 20px;
-  text-align: left;
+  text-align: center;
   padding: 0 20px;
 }
 </style>

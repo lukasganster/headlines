@@ -44,7 +44,7 @@ export default {
       providerList: providerList,
       date: moment().format("ddd, DD.MM.YYYY"),
       time: moment().format("HH:mm"),
-      basicSettings: { showProvidername: false },
+      basicSettings: { showProvidername: false, shuffleProviders: false },
     };
   },
   mounted() {
@@ -56,6 +56,11 @@ export default {
   },
   methods: {
     loadSettings() {
+      let basicSettings = localStorage.getItem("settings");
+      if (basicSettings) {
+        this.basicSettings = JSON.parse(basicSettings);
+      }
+
       let settings = localStorage.getItem("providers");
       if (settings) {
         settings = JSON.parse(settings);
@@ -72,11 +77,8 @@ export default {
         this.providerList = showProviders.sort((a, b) =>
           a.index > b.index ? 1 : -1
         );
-      }
-
-      let basicSettings = localStorage.getItem("settings");
-      if (basicSettings) {
-        this.basicSettings = JSON.parse(basicSettings);
+        if (this.basicSettings.shuffleProviders)
+          this.providerList = this.providerList.sort(() => 0.5 - Math.random());
       }
     },
   },
@@ -109,12 +111,12 @@ body {
 }
 @media screen and (max-width: 650px) {
   * ::-webkit-scrollbar {
-    width: 40px;
+    width: 10px;
   }
   * ::-webkit-scrollbar-thumb {
     background: rgb(249, 217, 76);
     border-radius: 10px;
-    width: 50px;
+    width: 10px;
   }
   *::-webkit-scrollbar-track {
     background: rgba(221, 221, 221, 0.046);
