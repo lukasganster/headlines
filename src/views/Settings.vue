@@ -17,12 +17,12 @@
       <div>
         <input
           type="checkbox"
-          id="showProvidername"
-          v-model="basicSettings.showProvidername"
+          id="isMinimalmode"
+          v-model="basicSettings.isMinimalmode"
         />
-        <label for="showProvidername">Toggle</label>
+        <label for="isMinimalmode">Toggle</label>
       </div>
-      <span class="providerIndex">Show the provider name next to the icon</span>
+      <span class="providerIndex">Use Minimal provider mode</span>
     </div>
 
     <div class="providerSelect">
@@ -34,7 +34,7 @@
         />
         <label for="shuffleProviders">Toggle</label>
       </div>
-      <span class="providerIndex">Shuffle the providers on every reload</span>
+      <span class="providerIndex">Shuffle the order of the providers</span>
     </div>
   </div>
   <div class="section" id="providerSelectGrid">
@@ -60,17 +60,23 @@
           <span class="providerIndex">
             #{{ element.index > 9 ? element.index : "0" + element.index }}
           </span>
+
           <img
             :src="require('@/assets/img/' + element.logo + '.jpg')"
             class="logo"
           />
+          <select v-model="element.maxArticles" style="float: right">
+            <option v-for="i in [5, 6, 7, 8, 9, 10, 11]" :key="i">
+              {{ i }}
+            </option>
+          </select>
         </div>
       </template>
     </draggable>
   </div>
-  <div class="section">
+  <div class="section" style="color: white; padding-bottom: 40px !important">
     <h2 class="subtitle">About 💡</h2>
-    <p style="color: white; padding: 0 auto 40px auto">
+    <p>
       <b>headlines </b> - Version 0.0.4<br />Made with ❤️ in Austria by
       <a href="https://www.lukasganster.com" style="color: lightblue"
         >lukasganster</a
@@ -96,7 +102,7 @@ export default {
       time: moment().format("HH:mm"),
       drag: false,
       basicSettings: {
-        showProvidername: false,
+        isMinimalmode: false,
         shuffleProviders: false,
       },
     };
@@ -123,6 +129,7 @@ export default {
           name: p.name,
           index: providerList.indexOf(p) + 1,
           selected: p.selected ? true : false,
+          maxArticles: parseInt(p.maxArticles),
         };
       });
       localStorage.setItem("providers", JSON.stringify(saveObject));
@@ -176,7 +183,7 @@ label {
   text-indent: -9999px;
   width: 70px;
   height: 35px;
-  background: grey;
+  background: rgb(86, 86, 86);
   display: block;
   border-radius: 35px;
   position: relative;
@@ -193,7 +200,7 @@ label:after {
   transition: 0.3s;
 }
 input:checked + label {
-  background: rgb(249, 217, 76);
+  background: #ffb347;
 }
 input:checked + label:after {
   left: calc(100%);
@@ -212,7 +219,7 @@ label:active:after {
 }
 .providerSelect img {
   max-height: 35px;
-  max-width: 200px;
+  max-width: 180px;
   margin-left: 10px;
 }
 .providerIndex {

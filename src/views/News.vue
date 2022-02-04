@@ -1,4 +1,4 @@
-<template>
+<template class="x">
   <div class="header">
     <h2>
       <router-link to="/"><span class="active">Headlines</span></router-link>
@@ -15,7 +15,7 @@
       :key="provider"
       :rssUrl="provider.rssUrl"
       :name="provider.name"
-      :showProvidername="basicSettings.showProvidername"
+      :isMinimalmode="basicSettings.isMinimalmode"
       :maxArticles="provider.maxArticles"
       :logo="provider.logo"
       :country="provider.country"
@@ -44,7 +44,7 @@ export default {
       providerList: providerList,
       date: moment().format("ddd, DD.MM.YYYY"),
       time: moment().format("HH:mm"),
-      basicSettings: { showProvidername: false, shuffleProviders: false },
+      basicSettings: { isMinimalmode: false, shuffleProviders: false },
     };
   },
   mounted() {
@@ -53,6 +53,7 @@ export default {
       this.time = moment().format("HH:mm");
     }, 500);
     this.loadSettings();
+    document.getElementById("app").classList = "midnight";
   },
   methods: {
     loadSettings() {
@@ -153,9 +154,16 @@ body {
   padding: 20px 0 40px 0;
 }
 h2 span.active {
-  color: rgb(249, 217, 76);
+  /* background: #1a2a6c; */ /* background: linear-gradient(to right, #ff9966,
+#ff5e62); */
+  background: -webkit-linear-gradient(to right, #ffb347, #ffcc33);
+  background: linear-gradient(to right, #ffb347, #ffcc33);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-weight: 700;
-  border-bottom: 2px solid #fad94c;
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  border-image: linear-gradient(91deg, #ffb247, #ffca33) 1;
 }
 h2 span {
   color: rgb(112, 112, 112);

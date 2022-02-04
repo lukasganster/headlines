@@ -1,14 +1,14 @@
 <template>
   <div class="provider">
-    <div class="providerInfo" :class="{ showProvidername: !showProvidername }">
+    <div class="providerInfo" :class="{ isMinimalmode: !isMinimalmode }">
       <img
-        v-if="showProvidername"
+        v-if="isMinimalmode"
         :src="require('@/assets/icons/' + logo + '.png')"
         class="providerLogo"
       />
-      <span v-if="showProvidername" class="providerName">{{ name }}</span>
+      <span v-if="isMinimalmode" class="providerName">{{ name }}</span>
       <img
-        v-if="!showProvidername"
+        v-if="!isMinimalmode"
         :src="require('@/assets/img/' + logo + '.jpg')"
         class="providerLogo"
       />
@@ -22,6 +22,7 @@
         v-for="article in articles"
         :key="article"
         class="article"
+        :class="{ minimalArticle: isMinimalmode }"
         @click="openLink(article)"
       >
         <span class="title" :class="{ hasOpened: article.hasOpened }">{{
@@ -62,7 +63,7 @@ export default {
     logo: { type: String },
     name: { type: String },
     country: { type: String },
-    showProvidername: { type: Boolean },
+    isMinimalmode: { type: Boolean },
   },
   async mounted() {
     await this.getRss();
@@ -149,6 +150,17 @@ ul {
   font-family: "SF UI Display", sans-serif;
   align-items: center;
 }
+.minimalArticle {
+  border-bottom: none;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  grid-template-columns: 1fr;
+  border-left: white 2px solid;
+}
+.minimalArticle::before,
+.minimalArticle > .time {
+  display: none;
+}
 .article:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
@@ -171,7 +183,7 @@ ul {
   grid-template-columns: 50px auto 40px;
   align-items: center;
 }
-.showProvidername {
+.isMinimalmode {
   grid-template-columns: auto 40px !important;
   justify-content: space-between;
 }
