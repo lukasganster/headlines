@@ -22,9 +22,7 @@
         />
         <label for="showProvidername">Toggle</label>
       </div>
-      <span class="providerIndex"
-        >Show the icon and the name for the provider.</span
-      >
+      <span class="providerIndex">Show the provider name next to the icon</span>
     </div>
 
     <div class="providerSelect">
@@ -36,11 +34,11 @@
         />
         <label for="shuffleProviders">Toggle</label>
       </div>
-      <span class="providerIndex">Shuffle the providers on every reload.</span>
+      <span class="providerIndex">Shuffle the providers on every reload</span>
     </div>
   </div>
   <div class="section" id="providerSelectGrid">
-    <h2 class="subtitle">Selected news providers ✅</h2>
+    <h2 class="subtitle">Selected providers ✅</h2>
     <draggable
       v-model="providerList"
       @start="drag = true"

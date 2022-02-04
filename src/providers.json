@@ -27,7 +27,6 @@
     "logo": "apa",
     "country": "aut"
   },
-
   {
     "name": "Die Zeit",
     "rssUrl": "https://newsfeed.zeit.de/index",
@@ -43,35 +42,35 @@
     "country": "aut"
   },
   {
-    "name": "NYT",
+    "name": "New York Times",
     "rssUrl": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
     "maxArticles": 8,
     "logo": "nyt",
     "country": "us"
   },
   {
-    "name": "Guardian",
+    "name": "The Guardian",
     "rssUrl": "https://www.theguardian.com/uk/rss",
     "maxArticles": 7,
     "logo": "guardian",
     "country": "uk"
   },
   {
-    "name": "FAZ",
+    "name": "Frankfurter Allgemeine Zeitung",
     "rssUrl": "https://www.faz.net/rss/aktuell",
     "maxArticles": 7,
     "logo": "faz",
     "country": "de"
   },
   {
-    "name": "WZ",
+    "name": "Wiener Zeitung",
     "rssUrl": "https://www.wienerzeitung.at/_em_daten/_module/10001.rss",
     "maxArticles": 7,
     "logo": "wienerzeitung",
     "country": "aut"
   },
   {
-    "name": "NZZ",
+    "name": "Neue Zürcher Zeitung",
     "rssUrl": "https://www.nzz.ch/recent.rss",
     "maxArticles": 6,
     "logo": "nzz",
