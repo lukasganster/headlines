@@ -1,8 +1,8 @@
 <template>
   <div class="header">
     <h2>
-      <router-link to="/"><span>News</span></router-link>
-      <span class="active">Einstellungen</span>
+      <router-link to="/"><span>Headlines</span></router-link>
+      <span class="active">Settings</span>
     </h2>
     <h3>
       <span class="date">{{ date }}</span>
@@ -66,6 +66,7 @@ export default {
     providerList: {
       handler: function () {
         this.saveSettings(this.providerList);
+        this.providerList.map((p, index) => (p.index = index + 1));
       },
       deep: true,
     },

@@ -1,8 +1,8 @@
 <template>
   <div class="header">
     <h2>
-      <router-link to="/"><span class="active">News</span></router-link>
-      <router-link to="/settings"><span>Einstellungen</span></router-link>
+      <router-link to="/"><span class="active">Headlines</span></router-link>
+      <router-link to="/settings"><span>Settings</span></router-link>
     </h2>
     <h3>
       <span class="date">{{ date }}</span>
