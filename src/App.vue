@@ -34,4 +34,10 @@ a {
 .fade-leave-active {
   opacity: 0;
 }
+h2.subtitle {
+  color: white;
+  margin-bottom: 20px;
+  text-align: left;
+  padding: 0 20px;
+}
 </style>
