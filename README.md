@@ -1,4 +1,4 @@
-# newsfeed
+# headlines
 
 ## Project setup
 ```
