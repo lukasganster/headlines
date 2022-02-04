@@ -14,6 +14,8 @@
       v-for="provider in providerList"
       :key="provider"
       :rssUrl="provider.rssUrl"
+      :name="provider.name"
+      :showProvidername="basicSettings.showProvidername"
       :maxArticles="provider.maxArticles"
       :logo="provider.logo"
       :country="provider.country"
@@ -42,6 +44,7 @@ export default {
       providerList: providerList,
       date: moment().format("ddd, DD.MM.YYYY"),
       time: moment().format("HH:mm"),
+      basicSettings: { showProvidername: false },
     };
   },
   mounted() {
@@ -69,6 +72,11 @@ export default {
         this.providerList = showProviders.sort((a, b) =>
           a.index > b.index ? 1 : -1
         );
+      }
+
+      let basicSettings = localStorage.getItem("settings");
+      if (basicSettings) {
+        this.basicSettings = JSON.parse(basicSettings);
       }
     },
   },

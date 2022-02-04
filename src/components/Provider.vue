@@ -1,8 +1,21 @@
 <template>
   <div class="provider">
-    <div class="providerImages">
-      <img :src="require('@/assets/img/' + logo)" class="logo" />
-      <img :src="require('@/assets/img/' + country + '.png')" class="country" />
+    <div class="providerInfo" :class="{ showProvidername: !showProvidername }">
+      <img
+        v-if="showProvidername"
+        :src="require('@/assets/icons/' + logo + '.png')"
+        class="providerLogo"
+      />
+      <span v-if="showProvidername" class="providerName">{{ name }}</span>
+      <img
+        v-if="!showProvidername"
+        :src="require('@/assets/img/' + logo + '.jpg')"
+        class="providerLogo"
+      />
+      <img
+        :src="require('@/assets/img/' + country + '.png')"
+        class="providerCountry"
+      />
     </div>
     <ul>
       <li
@@ -47,7 +60,9 @@ export default {
       default: 10,
     },
     logo: { type: String },
+    name: { type: String },
     country: { type: String },
+    showProvidername: { type: Boolean },
   },
   async mounted() {
     await this.getRss();
@@ -65,8 +80,6 @@ export default {
         .then((data) => {
           const items = data.querySelectorAll("item");
           this.articles = this.getArticles(items, this.maxArticles);
-
-          console.log(this.articles);
         });
     },
     getArticle(item) {
@@ -152,21 +165,24 @@ ul {
 .time {
   transform: scale(0.5);
 }
-.providerImages {
-  display: block;
-  min-height: 40px;
+.providerInfo {
+  display: grid;
+  padding: 0 20px;
+  grid-template-columns: 50px auto 40px;
+  align-items: center;
 }
-.logo,
-.country {
+.showProvidername {
+  grid-template-columns: auto 40px !important;
+  justify-content: space-between;
+}
+.providerName {
+  color: white;
+  text-align: left;
+  font-weight: 700;
+  font-size: 1.3em;
+}
+.providerLogo,
+.providerCountry {
   max-height: 40px;
-  margin: 0 20px;
-}
-
-.logo {
-  float: left;
-  max-width: 60%;
-}
-.country {
-  float: right;
 }
 </style>

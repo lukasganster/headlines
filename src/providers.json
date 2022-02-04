@@ -3,28 +3,28 @@
     "name": "ORF",
     "rssUrl": "https://rss.orf.at/news.xml",
     "maxArticles": 9,
-    "logo": "orf.jpg",
+    "logo": "orf",
     "country": "aut"
   },
   {
-    "name": "Presse",
+    "name": "Die Presse",
     "rssUrl": "https://www.diepresse.com/rss/home",
     "maxArticles": 8,
-    "logo": "presse.jpg",
+    "logo": "presse",
     "country": "aut"
   },
   {
-    "name": "Standard",
+    "name": "Der Standard",
     "rssUrl": "https://www.derstandard.at/rss",
     "maxArticles": 8,
-    "logo": "standard.jpg",
+    "logo": "standard",
     "country": "aut"
   },
   {
     "name": "APA",
     "rssUrl": "https://www.ots.at/rss/index",
     "maxArticles": 8,
-    "logo": "apa.jpg",
+    "logo": "apa",
     "country": "aut"
   },
 
@@ -32,49 +32,49 @@
     "name": "Die Zeit",
     "rssUrl": "https://newsfeed.zeit.de/index",
     "maxArticles": 7,
-    "logo": "zeit.jpg",
+    "logo": "zeit",
     "country": "de"
   },
   {
     "name": "Kurier",
     "rssUrl": "https://kurier.at/xml/rssd",
     "maxArticles": 8,
-    "logo": "kurier.jpg",
+    "logo": "kurier",
     "country": "aut"
   },
   {
     "name": "NYT",
     "rssUrl": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
     "maxArticles": 8,
-    "logo": "nyt.jpg",
+    "logo": "nyt",
     "country": "us"
   },
   {
     "name": "Guardian",
     "rssUrl": "https://www.theguardian.com/uk/rss",
     "maxArticles": 7,
-    "logo": "guardian.jpg",
+    "logo": "guardian",
     "country": "uk"
   },
   {
     "name": "FAZ",
-    "rssUrl": "https://www.theguardian.com/uk/rss",
+    "rssUrl": "https://www.faz.net/rss/aktuell",
     "maxArticles": 7,
-    "logo": "faz.jpg",
+    "logo": "faz",
     "country": "de"
   },
   {
     "name": "WZ",
     "rssUrl": "https://www.wienerzeitung.at/_em_daten/_module/10001.rss",
     "maxArticles": 7,
-    "logo": "wienerzeitung.jpg",
+    "logo": "wienerzeitung",
     "country": "aut"
   },
   {
     "name": "NZZ",
     "rssUrl": "https://www.nzz.ch/recent.rss",
     "maxArticles": 6,
-    "logo": "nzz.jpg",
+    "logo": "nzz",
     "country": "ch"
   }
 ]

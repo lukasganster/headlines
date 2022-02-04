@@ -17,7 +17,25 @@
       >
     </p>
   </div>
-  <div id="providerSelectGrid">
+  <div class="section">
+    <h2 class="subtitle">Preferences ⚙️</h2>
+
+    <div class="providerSelect">
+      <div>
+        <input
+          type="checkbox"
+          :id="basicSettings.showProvidername"
+          v-model="basicSettings.showProvidername"
+        />
+        <label :for="basicSettings.showProvidername">Toggle</label>
+      </div>
+      <span class="providerIndex"
+        >Show the icon and the name for the provider</span
+      >
+    </div>
+  </div>
+  <div class="section" id="providerSelectGrid">
+    <h2 class="subtitle">Selected news providers ✅</h2>
     <draggable
       v-model="providerList"
       @start="drag = true"
@@ -28,7 +46,6 @@
     >
       <template #item="{ element }">
         <div class="providerSelect">
-          <span class="providerIndex"> #{{ element.index }} </span>
           <div>
             <input
               type="checkbox"
@@ -37,7 +54,13 @@
             />
             <label :for="element.name">Toggle</label>
           </div>
-          <img :src="require('@/assets/img/' + element.logo)" class="logo" />
+          <span class="providerIndex">
+            #{{ element.index > 9 ? element.index : "0" + element.index }}
+          </span>
+          <img
+            :src="require('@/assets/img/' + element.logo + '.jpg')"
+            class="logo"
+          />
         </div>
       </template>
     </draggable>
@@ -60,19 +83,28 @@ export default {
       date: moment().format("ddd, DD.MM.YYYY"),
       time: moment().format("HH:mm"),
       drag: false,
+      basicSettings: {
+        showProvidername: false,
+      },
     };
   },
   watch: {
     providerList: {
       handler: function () {
-        this.saveSettings(this.providerList);
+        this.saveSettings(this.providerList, this.basicSettings);
         this.providerList.map((p, index) => (p.index = index + 1));
+      },
+      deep: true,
+    },
+    basicSettings: {
+      handler: function () {
+        this.saveSettings(this.providerList, this.basicSettings);
       },
       deep: true,
     },
   },
   methods: {
-    saveSettings(providerList) {
+    saveSettings(providerList, basicSettings) {
       let saveObject = providerList.map((p) => {
         return {
           name: p.name,
@@ -81,16 +113,17 @@ export default {
         };
       });
       localStorage.setItem("providers", JSON.stringify(saveObject));
+      localStorage.setItem("settings", JSON.stringify(basicSettings));
     },
     loadSettings() {
-      let settings = localStorage.getItem("providers");
-      if (settings) {
-        let selectedProviders = JSON.parse(settings);
+      let providers = localStorage.getItem("providers");
+      if (providers) {
+        let selectedProviders = JSON.parse(providers);
         this.providerList.map((p) => {
           selectedProviders.forEach((sP) => {
             if (p.name == sP.name) {
               p.index = sP.index;
-              p.selected = true;
+              if (sP.selected) p.selected = true;
             }
           });
         });
@@ -101,6 +134,11 @@ export default {
         console.log("No settings found");
         this.providerList.map((p) => (p.selected = true));
         this.providerList.map((p, index) => (p.index = index + 1));
+      }
+
+      let basicSettings = localStorage.getItem("settings");
+      if (basicSettings) {
+        this.basicSettings = JSON.parse(basicSettings);
       }
     },
   },
@@ -153,8 +191,6 @@ label:active:after {
 }
 .providerSelect {
   cursor: pointer;
-  width: 90%;
-  margin: 0 auto;
   display: flex;
   margin-bottom: 20px;
 }
@@ -171,10 +207,13 @@ label:active:after {
   justify-content: center;
   color: white;
   align-items: center;
-  padding-left: 5px;
-  min-width: 50px;
+  padding-left: 10px;
 }
 #providerSelectGrid {
   padding: 20px 0 40px 0;
+}
+.section {
+  width: 90%;
+  margin: 0 auto;
 }
 </style>
