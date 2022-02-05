@@ -96,5 +96,12 @@
     "maxArticles": 6,
     "logo": "welt",
     "country": "de"
+  },
+  {
+    "name": "Salzburger Nachrichten",
+    "rssUrl": "https://www.sn.at/xml/rss",
+    "maxArticles": 6,
+    "logo": "sn",
+    "country": "aut"
   }
 ]
