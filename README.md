@@ -12,4 +12,4 @@
 Headlines is a small vue application thats provides current articles from several news providers.
 
 ## Demo
-https://www.lukasganster.com/projects/News2/
+https://www.lukasganster.com/projects/headlines
