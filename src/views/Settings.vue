@@ -22,7 +22,7 @@
         />
         <label for="isMinimalmode">Toggle</label>
       </div>
-      <span class="providerIndex">Use Minimal provider mode</span>
+      <span class="providerIndex">Use the minimalistic representation</span>
     </div>
 
     <div class="providerSelect">

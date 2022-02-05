@@ -123,6 +123,9 @@ body {
     background: rgba(221, 221, 221, 0.046);
     border-radius: 10px;
   }
+  #providerGrid {
+    height: 80vh;
+  }
 }
 @media screen and (min-width: 650px) {
   #providerGrid {
@@ -139,19 +142,22 @@ body {
   }
   .provider {
     margin: 0 !important;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.06);
     padding: 10px 5px;
     border-radius: 10px;
   }
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1000px) {
   #providerGrid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 .header {
-  padding: 20px 0 40px 0;
+  justify-content: center;
+  height: clamp(15vh, 20vh, 200px);
+  display: flex;
+  flex-flow: column;
 }
 h2 span.active {
   /* background: #1a2a6c; */ /* background: linear-gradient(to right, #ff9966,
