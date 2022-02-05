@@ -38,7 +38,10 @@
     </div>
   </div>
   <div class="section" id="providerSelectGrid">
-    <h2 class="subtitle">Selected providers ✅</h2>
+    <h2 class="subtitle">
+      Selected providers ({{ providerList.filter((p) => p.selected).length }})
+      ✅
+    </h2>
     <draggable
       v-model="providerList"
       @start="drag = true"

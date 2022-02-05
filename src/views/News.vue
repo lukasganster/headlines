@@ -9,7 +9,7 @@
       <span class="time">{{ time }} Uhr</span>
     </h3>
   </div>
-  <div id="providerGrid">
+  <div id="providerGrid" v-if="providerList.length > 0">
     <Provider
       v-for="provider in providerList"
       :key="provider"
@@ -22,7 +22,7 @@
     />
   </div>
   <h2 v-if="providerList.length == 0" style="color: white">
-    Du hast aktuell keine Newsanbieter ausgewählt. <br />
+    No providers selected. <br />
     <span style="font-size: 200%">😞</span>
   </h2>
 </template>
