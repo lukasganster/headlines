@@ -75,5 +75,33 @@
     "maxArticles": 6,
     "logo": "nzz",
     "country": "ch"
+  },
+  {
+    "name": "Süddeutsche Zeitung",
+    "rssUrl": "https://rss.sueddeutsche.de/rss/Topthemen",
+    "maxArticles": 6,
+    "logo": "nzz",
+    "country": "de"
+  },
+  {
+    "name": "BBC",
+    "rssUrl": "http://feeds.bbci.co.uk/news/rss.xml",
+    "maxArticles": 6,
+    "logo": "bbc",
+    "country": "uk"
+  },
+  {
+    "name": "Die Welt",
+    "rssUrl": "https://www.welt.de/feeds/topnews.rss",
+    "maxArticles": 6,
+    "logo": "welt",
+    "country": "de"
+  },
+  {
+    "name": "Washington Post",
+    "rssUrl": "http://feeds.washingtonpost.com/rss/world",
+    "maxArticles": 6,
+    "logo": "wp",
+    "country": "us"
   }
 ]
