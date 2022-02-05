@@ -80,7 +80,7 @@
     "name": "Süddeutsche Zeitung",
     "rssUrl": "https://rss.sueddeutsche.de/rss/Topthemen",
     "maxArticles": 6,
-    "logo": "nzz",
+    "logo": "sz",
     "country": "de"
   },
   {
@@ -96,12 +96,5 @@
     "maxArticles": 6,
     "logo": "welt",
     "country": "de"
-  },
-  {
-    "name": "Washington Post",
-    "rssUrl": "http://feeds.washingtonpost.com/rss/world",
-    "maxArticles": 6,
-    "logo": "wp",
-    "country": "us"
   }
 ]
