@@ -71,6 +71,7 @@ export default {
           selectedProviders.forEach((sP) => {
             if (p.name == sP.name) {
               p.index = sP.index;
+              p.maxArticles = sP.maxArticles;
               showProviders.push(p);
             }
           });
