@@ -2,70 +2,70 @@
   {
     "name": "ORF",
     "rssUrl": "https://rss.orf.at/news.xml",
-    "maxArticles": 9,
+    "maxArticles": 7,
     "logo": "orf",
     "country": "aut"
   },
   {
     "name": "Die Presse",
     "rssUrl": "https://www.diepresse.com/rss/home",
-    "maxArticles": 8,
+    "maxArticles": 6,
     "logo": "presse",
     "country": "aut"
   },
   {
     "name": "Der Standard",
     "rssUrl": "https://www.derstandard.at/rss",
-    "maxArticles": 8,
+    "maxArticles": 6,
     "logo": "standard",
     "country": "aut"
   },
   {
     "name": "APA",
     "rssUrl": "https://www.ots.at/rss/index",
-    "maxArticles": 8,
+    "maxArticles": 5,
     "logo": "apa",
     "country": "aut"
   },
   {
     "name": "Die Zeit",
     "rssUrl": "https://newsfeed.zeit.de/index",
-    "maxArticles": 7,
+    "maxArticles": 6,
     "logo": "zeit",
     "country": "de"
   },
   {
     "name": "Kurier",
     "rssUrl": "https://kurier.at/xml/rssd",
-    "maxArticles": 8,
+    "maxArticles": 6,
     "logo": "kurier",
     "country": "aut"
   },
   {
     "name": "New York Times",
     "rssUrl": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
-    "maxArticles": 8,
+    "maxArticles": 6,
     "logo": "nyt",
     "country": "us"
   },
   {
     "name": "The Guardian",
     "rssUrl": "https://www.theguardian.com/uk/rss",
-    "maxArticles": 7,
+    "maxArticles": 5,
     "logo": "guardian",
     "country": "uk"
   },
   {
     "name": "Frankfurter Allgemeine Zeitung",
     "rssUrl": "https://www.faz.net/rss/aktuell",
-    "maxArticles": 7,
+    "maxArticles": 6,
     "logo": "faz",
     "country": "de"
   },
   {
     "name": "Wiener Zeitung",
     "rssUrl": "https://www.wienerzeitung.at/_em_daten/_module/10001.rss",
-    "maxArticles": 7,
+    "maxArticles": 6,
     "logo": "wienerzeitung",
     "country": "aut"
   },
