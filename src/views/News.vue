@@ -96,7 +96,6 @@ export default {
 }
 body {
   height: 100%;
-  width: 100vw;
   box-sizing: border-box;
 }
 #app {
