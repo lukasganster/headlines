@@ -4,7 +4,7 @@
       <router-link to="/"><span class="active">Headlines</span></router-link>
       <router-link to="/settings"><span>Settings</span></router-link>
     </h2>
-    <h3>
+    <h3 v-if="basicSettings.showDatetime">
       <span class="date">{{ date }}</span>
       <span class="time">{{ time }} Uhr</span>
     </h3>
@@ -44,7 +44,11 @@ export default {
       providerList: providerList,
       date: moment().format("ddd, DD.MM.YYYY"),
       time: moment().format("HH:mm"),
-      basicSettings: { isMinimalmode: false, shuffleProviders: false },
+      basicSettings: {
+        isMinimalmode: false,
+        shuffleProviders: false,
+        showDatetime: true,
+      },
     };
   },
   mounted() {

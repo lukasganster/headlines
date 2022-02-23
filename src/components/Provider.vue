@@ -172,7 +172,11 @@ ul {
   text-align: left;
 }
 .hasOpened {
-  opacity: 0.6;
+  opacity: 0.4;
+}
+.hasOpened::after {
+  content: " ☑️";
+  color: red;
 }
 .time {
   transform: scale(0.5);

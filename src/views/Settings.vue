@@ -4,7 +4,7 @@
       <router-link to="/"><span>Headlines</span></router-link>
       <span class="active">Settings</span>
     </h2>
-    <h3>
+    <h3 v-if="basicSettings.showDatetime">
       <span class="date">{{ date }}</span>
       <span class="time">{{ time }} Uhr</span>
     </h3>
@@ -35,6 +35,18 @@
         <label for="shuffleProviders">Toggle</label>
       </div>
       <span class="providerIndex">Shuffle the order of the providers</span>
+    </div>
+
+    <div class="providerSelect">
+      <div>
+        <input
+          type="checkbox"
+          id="showDatetime"
+          v-model="basicSettings.showDatetime"
+        />
+        <label for="showDatetime">Toggle</label>
+      </div>
+      <span class="providerIndex">Display date and time</span>
     </div>
   </div>
   <div class="section" id="providerSelectGrid" style="">
@@ -105,8 +117,9 @@ export default {
       time: moment().format("HH:mm"),
       drag: false,
       basicSettings: {
-        isMinimalmode: false,
+        isMinimalmode: true,
         shuffleProviders: false,
+        showDatetime: true,
       },
     };
   },
