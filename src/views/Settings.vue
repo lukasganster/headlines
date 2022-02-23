@@ -37,7 +37,7 @@
       <span class="providerIndex">Shuffle the order of the providers</span>
     </div>
   </div>
-  <div class="section" id="providerSelectGrid">
+  <div class="section" id="providerSelectGrid" style="">
     <h2 class="subtitle">
       Selected providers ({{ providerList.filter((p) => p.selected).length }})
       📰
@@ -80,7 +80,7 @@
   <div class="section" style="color: white; padding-bottom: 40px !important">
     <h2 class="subtitle">About 💡</h2>
     <p>
-      <b>headlines </b> - Version 0.0.4<br />Made with ❤️ in Austria by
+      <b>headlines </b> - Version 0.0.5<br />Made with ❤️ in Austria by
       <a href="https://www.lukasganster.com" style="color: lightblue"
         >lukasganster</a
       >
@@ -215,7 +215,7 @@ label:active:after {
 .providerSelect {
   cursor: pointer;
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 .providerSelect > div {
   display: grid;
@@ -236,7 +236,7 @@ label:active:after {
   padding: 20px 0 40px 0;
 }
 .section {
-  width: 90%;
+  width: 85%;
   margin: 0 auto;
 }
 </style>
