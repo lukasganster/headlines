@@ -1,3 +1,5 @@
+<!-- eslint-disable no-useless-escape -->
+<!-- eslint-disable no-useless-escape -->
 <template class="x">
   <div class="header">
     <h2>
@@ -71,15 +73,22 @@ export default {
         settings = JSON.parse(settings);
         let selectedProviders = settings.filter((p) => p.selected);
         let showProviders = [];
+        // eslint-disable-next-line no-useless-escape
+        const regex = /^(?:https?:\/\/)?(?:[^@\/\n]+@)?(?:www\.)?([^:\/\n]+)/
         this.providerList.forEach((p) => {
           selectedProviders.forEach((sP) => {
+            const domain = p.rssUrl.match(regex);
             if (p.name == sP.name) {
               p.index = sP.index;
               p.maxArticles = sP.maxArticles;
               showProviders.push(p);
+              // eslint-disable-next-line no-console
+              p.domain = domain.length > 1 ? domain[1] : domain[0];
             }
           });
         });
+        console.log("x")
+        console.log(this.providerList);
         this.providerList = showProviders.sort((a, b) =>
           a.index > b.index ? 1 : -1
         );
