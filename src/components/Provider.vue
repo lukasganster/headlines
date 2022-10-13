@@ -42,6 +42,7 @@
 <script>
 const moment = require("moment"); // require
 const axios = require("axios");
+const keyword_extractor = require("keyword-extractor");
 
 export default {
   name: "Provider",
@@ -92,6 +93,13 @@ export default {
       const date = dateString ? moment(dateString) : "";
       const dateFormatted = date ? date.format("HH:mm") : "";
       let isPremium = false;
+      const extraction_result =
+      keyword_extractor.extract(title,{
+          language:"german",
+          remove_digits: true,
+          return_changed_case:true,
+          remove_duplicates: false
+      });
       if (title.includes("premium")) {
         title = title.replace("[premium]", "");
         isPremium = true;
@@ -103,6 +111,7 @@ export default {
         dateFormatted,
         date,
         isPremium,
+        extraction_result
       };
     },
     getArticles(items, max = 10) {
@@ -112,6 +121,7 @@ export default {
         let article = this.getArticle(item);
         articles.push(article);
       });
+      console.log(articles);
       return articles;
     },
     openLink(article) {

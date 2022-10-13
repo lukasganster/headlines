@@ -1,10 +1,4 @@
-[  {
-    "name": "Google Trends",
-    "rssUrl": "https://trends.google.de/trends/trendingsearches/daily/rss?geo=AT",
-    "maxArticles": 7,
-    "logo": "orf",
-    "country": "aut"
-  },
+[ 
   {
     "name": "ORF",
     "rssUrl": "https://rss.orf.at/news.xml",
