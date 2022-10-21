@@ -88,8 +88,7 @@ export default {
       let title = item.querySelector("title").textContent;
       const link = item.querySelector("link").textContent;
       const dateString = item.querySelector("pubDate")
-        ? item.querySelector("pubDate").textContent
-        : item.querySelector("date").textContent;
+        ?? item.querySelector("date").textContent;
       const date = dateString ? moment(dateString) : "";
       const dateFormatted = date ? date.format("HH:mm") : "";
       let isPremium = false;
