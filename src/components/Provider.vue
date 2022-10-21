@@ -31,7 +31,7 @@
         <span class="time">{{ article.dateFormatted }}</span>
       </li>
       <img
-        v-if="articles === null"
+        v-if="!!!articles"
         src="https://c.tenor.com/I6kN-6X7nhAAAAAi/loading-buffering.gif"
         style="max-width: 20%; margin: 50px auto 0 auto"
       />
