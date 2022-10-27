@@ -87,7 +87,7 @@ export default {
             }
           });
         });
-        console.log("x")
+        console.log("providerList " + this.providerList);
         console.log(this.providerList);
         this.providerList = showProviders.sort((a, b) =>
           a.index > b.index ? 1 : -1
