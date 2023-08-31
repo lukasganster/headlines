@@ -8,7 +8,7 @@
   },
   {
     "name": "Die Presse",
-    "rssUrl": "https://www.diepresse.com/rss/home",
+    "rssUrl": "https://www.diepresse.com/rss/",
     "maxArticles": 6,
     "logo": "presse",
     "country": "aut"
@@ -61,13 +61,6 @@
     "maxArticles": 6,
     "logo": "faz",
     "country": "de"
-  },
-  {
-    "name": "Wiener Zeitung",
-    "rssUrl": "https://www.wienerzeitung.at/_em_daten/_module/10001.rss",
-    "maxArticles": 6,
-    "logo": "wienerzeitung",
-    "country": "aut"
   },
   {
     "name": "Neue Zürcher Zeitung",
