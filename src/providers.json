@@ -4,21 +4,24 @@
     "rssUrl": "https://rss.orf.at/news.xml",
     "maxArticles": 7,
     "logo": "orf",
-    "country": "aut"
+    "country": "aut",
+    "selected": true
   },
   {
     "name": "Die Presse",
     "rssUrl": "https://www.diepresse.com/rss/",
     "maxArticles": 6,
     "logo": "presse",
-    "country": "aut"
+    "country": "aut",
+    "selected": true
   },
   {
     "name": "Der Standard",
     "rssUrl": "https://www.derstandard.at/rss",
     "maxArticles": 6,
     "logo": "standard",
-    "country": "aut"
+    "country": "aut",
+    "selected": true
   },
   {
     "name": "APA",
@@ -46,14 +49,16 @@
     "rssUrl": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
     "maxArticles": 6,
     "logo": "nyt",
-    "country": "us"
+    "country": "us",
+    "selected": true
   },
   {
     "name": "The Guardian",
     "rssUrl": "https://www.theguardian.com/uk/rss",
     "maxArticles": 5,
     "logo": "guardian",
-    "country": "uk"
+    "country": "uk",
+    "selected": true
   },
   {
     "name": "Frankfurter Allgemeine Zeitung",
@@ -67,7 +72,8 @@
     "rssUrl": "https://www.nzz.ch/recent.rss",
     "maxArticles": 6,
     "logo": "nzz",
-    "country": "ch"
+    "country": "ch",
+    "selected": true
   },
   {
     "name": "Süddeutsche Zeitung",

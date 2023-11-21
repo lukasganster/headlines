@@ -1,6 +1,6 @@
 <!-- eslint-disable no-useless-escape -->
 <!-- eslint-disable no-useless-escape -->
-<template class="x">
+<template >
   <div class="header">
     <h2>
       <router-link to="/"><span class="active">Headlines</span></router-link>

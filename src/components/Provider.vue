@@ -54,7 +54,7 @@ export default {
   props: {
     rssUrl: {
       type: String,
-      require,
+      require: true,
     },
     maxArticles: {
       type: Number,
@@ -111,7 +111,6 @@ export default {
         let article = this.getArticle(item);
         articles.push(article);
       });
-      console.log(articles);
       return articles;
     },
     openLink(article) {

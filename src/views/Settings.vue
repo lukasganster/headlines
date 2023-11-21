@@ -13,40 +13,28 @@
   <div class="section">
     <h2 class="subtitle">Preferences ⚙️</h2>
 
-    <div class="providerSelect">
+    <div class="settingsSelect">
       <div>
-        <input
-          type="checkbox"
-          id="isMinimalmode"
-          v-model="basicSettings.isMinimalmode"
-        />
+        <input type="checkbox" id="isMinimalmode" v-model="basicSettings.isMinimalmode" />
         <label for="isMinimalmode">Toggle</label>
       </div>
-      <span class="providerIndex">Use the minimalistic representation</span>
+      <span class="settingsIndex">Use the minimalistic representation</span>
     </div>
 
-    <div class="providerSelect">
+    <div class="settingsSelect">
       <div>
-        <input
-          type="checkbox"
-          id="shuffleProviders"
-          v-model="basicSettings.shuffleProviders"
-        />
+        <input type="checkbox" id="shuffleProviders" v-model="basicSettings.shuffleProviders" />
         <label for="shuffleProviders">Toggle</label>
       </div>
-      <span class="providerIndex">Shuffle the order of the providers</span>
+      <span class="settingsIndex">Shuffle the order of the providers</span>
     </div>
 
-    <div class="providerSelect">
+    <div class="settingsSelect">
       <div>
-        <input
-          type="checkbox"
-          id="showDatetime"
-          v-model="basicSettings.showDatetime"
-        />
+        <input type="checkbox" id="showDatetime" v-model="basicSettings.showDatetime" />
         <label for="showDatetime">Toggle</label>
       </div>
-      <span class="providerIndex">Display date and time</span>
+      <span class="settingsIndex">Display date and time</span>
     </div>
   </div>
   <div class="section" id="providerSelectGrid" style="">
@@ -54,37 +42,31 @@
       Selected providers ({{ providerList.filter((p) => p.selected).length }})
       📰
     </h2>
-    <draggable
-      v-model="providerList"
-      @start="drag = true"
-      @end="drag = false"
-      item-key="id"
-      tag="transition-group"
-      :component-data="{ name: 'fade' }"
-    >
+    <draggable v-model="providerList" @start="drag = true" @end="drag = false" item-key="id" tag="transition-group"
+      :component-data="{ name: 'fade' }">
       <template #item="{ element }">
         <div class="providerSelect">
           <div>
-            <input
-              type="checkbox"
-              :id="element.name"
-              v-model="element.selected"
-            />
+            <input type="checkbox" :id="element.name" v-model="element.selected" />
             <label :for="element.name">Toggle</label>
           </div>
           <span class="providerIndex">
             #{{ element.index > 9 ? element.index : "0" + element.index }}
           </span>
+          <img :src="require('@/assets/icons/' + element.logo + '.png')" class="logo" />
+          <span class="providerIndex">
+            {{ element.name }}
+          </span>
 
-          <img
-            :src="require('@/assets/img/' + element.logo + '.jpg')"
-            class="logo"
-          />
           <select v-model="element.maxArticles" style="float: right">
             <option v-for="i in [5, 6, 7, 8, 9, 10, 11]" :key="i">
               {{ i }}
             </option>
           </select>
+
+          <span class="dots">
+            ⋮
+          </span>
         </div>
       </template>
     </draggable>
@@ -92,10 +74,8 @@
   <div class="section" style="color: white; padding-bottom: 40px !important">
     <h2 class="subtitle">About 💡</h2>
     <p>
-      <b>headlines </b> - Version 0.0.5<br />Made with ❤️ in Austria by
-      <a href="https://www.lukasganster.com" style="color: lightblue"
-        >lukasganster</a
-      >
+      <b>headlines </b> - Version 1.0.0<br />Made with ❤️ in Austria by
+      <a href="https://www.lukasganster.com" style="color: lightblue">lukasganster</a>
     </p>
   </div>
 </template>
@@ -194,6 +174,7 @@ input[type="checkbox"] {
   width: 0;
   visibility: hidden;
 }
+
 label {
   cursor: pointer;
   text-indent: -9999px;
@@ -204,6 +185,7 @@ label {
   border-radius: 35px;
   position: relative;
 }
+
 label:after {
   content: "";
   position: absolute;
@@ -215,41 +197,82 @@ label:after {
   border-radius: 35px;
   transition: 0.3s;
 }
-input:checked + label {
+
+input:checked+label {
   background: #ffb347;
 }
-input:checked + label:after {
+
+input:checked+label:after {
   left: calc(100%);
   transform: translateX(-100%);
 }
+
 label:active:after {
   width: 50px;
 }
+
 .providerSelect {
   cursor: pointer;
-  display: flex;
+  display: grid;
   margin-bottom: 30px;
+  grid-template-columns: 1fr 1fr 1fr 4fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
 }
-.providerSelect > div {
+
+.providerSelect .dots {
+  font-size: 40px;
+  color: white;
+}
+
+.providerSelect>div {
   display: grid;
 }
+
 .providerSelect img {
   max-height: 35px;
   max-width: 180px;
   margin-left: 10px;
 }
+
 .providerIndex {
   display: grid;
-  justify-content: center;
+  justify-content: left;
   color: white;
   align-items: center;
   padding-left: 10px;
+  text-align: left;
 }
+
 #providerSelectGrid {
   padding: 20px 0 40px 0;
 }
+
 .section {
   width: 85%;
   margin: 0 auto;
+}
+
+select {
+  background: white;
+  min-height: 40px;
+  text-align: center;
+}
+
+.settingsSelect {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.settingsSelect div {
+  display: grid
+}
+
+.settingsIndex {
+  color: white;
+  text-align: left;
 }
 </style>
