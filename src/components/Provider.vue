@@ -31,7 +31,7 @@
         <span class="time">{{ article.dateFormatted }}</span>
       </li>
       <img
-        v-if="!!!articles"
+        v-if="!articles"
         src="https://c.tenor.com/I6kN-6X7nhAAAAAi/loading-buffering.gif"
         style="max-width: 20%; margin: 50px auto 0 auto"
       />
@@ -42,7 +42,6 @@
 <script>
 const moment = require("moment"); // require
 const axios = require("axios");
-const keyword_extractor = require("keyword-extractor");
 
 export default {
   name: "Provider",
@@ -92,13 +91,6 @@ export default {
       const date = dateString ? moment(dateString) : "";
       const dateFormatted = date ? date.format("HH:mm") : "";
       let isPremium = false;
-      const extraction_result =
-      keyword_extractor.extract(title,{
-          language:"german",
-          remove_digits: true,
-          return_changed_case:true,
-          remove_duplicates: false
-      });
       if (title.includes("premium")) {
         title = title.replace("[premium]", "");
         isPremium = true;
@@ -109,8 +101,7 @@ export default {
         dateString,
         dateFormatted,
         date,
-        isPremium,
-        extraction_result
+        isPremium
       };
     },
     getArticles(items, max = 10) {
