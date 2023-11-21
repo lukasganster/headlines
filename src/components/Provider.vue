@@ -22,7 +22,7 @@
         v-for="article in articles"
         :key="article"
         class="article"
-        :class="{ minimalArticle: isMinimalmode }"
+        :class="{ minimalArticle: isMinimalmode, isPremium: article.isPremium }"
         @click="openLink(article)"
       >
         <span class="title" :class="{ hasOpened: article.hasOpened }">{{
@@ -95,6 +95,7 @@ export default {
         title = title.replace("[premium]", "");
         isPremium = true;
       }
+      
       return {
         title,
         link,
@@ -199,5 +200,13 @@ ul {
 .providerLogo,
 .providerCountry {
   max-height: 40px;
+}
+
+li.article.minimalArticle.isPremium::after {
+    content: '★';
+    color: #ffc538;
+    position: absolute;
+    right: 5px;
+    font-size: 16px;
 }
 </style>
