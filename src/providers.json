@@ -24,6 +24,14 @@
     "selected": true
   },
   {
+    "name": "Tagesschau",
+    "rssUrl": "https://www.tagesschau.de/index~rss2.xml",
+    "maxArticles": 7,
+    "logo": "tagesschau",
+    "country": "de",
+    "selected": true
+  },
+  {
     "name": "APA",
     "rssUrl": "https://www.ots.at/rss/index",
     "maxArticles": 5,
@@ -42,6 +50,13 @@
     "rssUrl": "https://kurier.at/xml/rssd",
     "maxArticles": 6,
     "logo": "kurier",
+    "country": "aut"
+  },
+  {
+    "name": "Tiroler Tageszeitung",
+    "rssUrl": "https://www.tt.com/rss/news.xml",
+    "maxArticles": 6,
+    "logo": "tt",
     "country": "aut"
   },
   {
@@ -101,6 +116,13 @@
     "rssUrl": "https://www.sn.at/xml/rss",
     "maxArticles": 6,
     "logo": "sn",
+    "country": "aut"
+  },
+  {
+    "name": "Wiener Zeitung",
+    "rssUrl": "https://www.wienerzeitung.at/rss.xml",
+    "maxArticles": 6,
+    "logo": "wienerzeitung",
     "country": "aut"
   }
 ]

@@ -7,13 +7,13 @@
 </template>
 
 <style>
-@import url("http://fonts.cdnfonts.com/css/sf-ui-display");
+@import url('https://fonts.cdnfonts.com/css/sf-ui-text-2');
 html,
 body {
   height: 100%;
 }
 .midnight {
-  background: linear-gradient(to bottom, #1b2128, #2e3439);
+  background: linear-gradient(to bottom, #1b2128, #0d0e0f)
 }
 .lawrencium {
   background: #0f0c29; /* fallback for old browsers */
@@ -52,7 +52,7 @@ a {
 h2.subtitle {
   color: white;
   margin-bottom: 20px;
-  text-align: center;
+  text-align: left;
   padding: 0 20px;
 }
 </style>

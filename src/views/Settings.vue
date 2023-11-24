@@ -11,22 +11,14 @@
   </div>
 
   <div class="section">
-    <h2 class="subtitle">Preferences ⚙️</h2>
+    <h2 class="subtitle">Präferenzen ⚙️</h2>
 
     <div class="settingsSelect">
       <div>
         <input type="checkbox" id="isMinimalmode" v-model="basicSettings.isMinimalmode" />
         <label for="isMinimalmode">Toggle</label>
       </div>
-      <span class="settingsIndex">Use the minimalistic representation</span>
-    </div>
-
-    <div class="settingsSelect">
-      <div>
-        <input type="checkbox" id="shuffleProviders" v-model="basicSettings.shuffleProviders" />
-        <label for="shuffleProviders">Toggle</label>
-      </div>
-      <span class="settingsIndex">Shuffle the order of the providers</span>
+      <span class="settingsIndex">Minimalistische Ansicht der verschiedenen Headlines</span>
     </div>
 
     <div class="settingsSelect">
@@ -34,13 +26,12 @@
         <input type="checkbox" id="showDatetime" v-model="basicSettings.showDatetime" />
         <label for="showDatetime">Toggle</label>
       </div>
-      <span class="settingsIndex">Display date and time</span>
+      <span class="settingsIndex">Datum und Uhrzeit anzeigen</span>
     </div>
   </div>
   <div class="section" id="providerSelectGrid" style="">
     <h2 class="subtitle">
-      Selected providers ({{ providerList.filter((p) => p.selected).length }})
-      📰
+      News-Provider 📰  
     </h2>
     <draggable v-model="providerList" @start="drag = true" @end="drag = false" item-key="id" tag="transition-group"
       :component-data="{ name: 'fade' }">
@@ -132,6 +123,7 @@ export default {
       localStorage.setItem("settings", JSON.stringify(basicSettings));
     },
     loadSettings() {
+      document.getElementById("app").classList = "midnight";
       let providers = localStorage.getItem("providers");
       if (providers) {
         let selectedProviders = JSON.parse(providers);
@@ -216,6 +208,7 @@ label:active:after {
   display: grid;
   margin-bottom: 30px;
   grid-template-columns: 1fr 1fr 1fr 4fr 1fr 1fr;
+  gap: 10px;
   justify-content: center;
   align-items: center;
 }
@@ -232,7 +225,6 @@ label:active:after {
 .providerSelect img {
   max-height: 35px;
   max-width: 180px;
-  margin-left: 10px;
 }
 
 .providerIndex {
@@ -240,16 +232,15 @@ label:active:after {
   justify-content: left;
   color: white;
   align-items: center;
-  padding-left: 10px;
   text-align: left;
 }
 
 #providerSelectGrid {
-  padding: 20px 0 40px 0;
+  padding: 20px 0 30px 0;
 }
 
 .section {
-  width: 85%;
+  width: 90%;
   margin: 0 auto;
 }
 

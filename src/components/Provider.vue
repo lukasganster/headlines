@@ -1,40 +1,21 @@
 <template>
-  <div class="provider">
+  <div class="provider" >
     <div class="providerInfo" :class="{ isMinimalmode: !isMinimalmode }">
-      <img
-        v-if="isMinimalmode"
-        :src="require('@/assets/icons/' + logo + '.png')"
-        class="providerLogo"
-      />
+      <img v-if="isMinimalmode" :src="require('@/assets/icons/' + logo + '.png')" class="providerLogo" />
       <span v-if="isMinimalmode" class="providerName">{{ name }}</span>
-      <img
-        v-if="!isMinimalmode"
-        :src="require('@/assets/img/' + logo + '.jpg')"
-        class="providerLogo"
-      />
-      <img
-        :src="require('@/assets/img/' + country + '.png')"
-        class="providerCountry"
-      />
+      <img v-if="!isMinimalmode" :src="require('@/assets/img/' + logo + '.jpg')" class="providerLogo" />
+      <img :src="require('@/assets/img/' + country + '.png')" class="providerCountry" />
     </div>
     <ul>
-      <li
-        v-for="article in articles"
-        :key="article"
-        class="article"
-        :class="{ minimalArticle: isMinimalmode, isPremium: article.isPremium }"
-        @click="openLink(article)"
-      >
+      <li v-for="article in articles" :key="article" class="article"
+        :class="{ minimalArticle: isMinimalmode, isPremium: article.isPremium }" @click="openLink(article)">
         <span class="title" :class="{ hasOpened: article.hasOpened }">{{
           article.title
         }}</span>
         <span class="time">{{ article.dateFormatted }}</span>
       </li>
-      <img
-        v-if="!articles"
-        src="https://c.tenor.com/I6kN-6X7nhAAAAAi/loading-buffering.gif"
-        style="max-width: 20%; margin: 50px auto 0 auto"
-      />
+      <img v-if="!articles" :src="require('@/assets/img/loading.webp')"
+        style="max-width: 80%; margin: 50px auto 0 auto" />
     </ul>
   </div>
 </template>
@@ -95,7 +76,7 @@ export default {
         title = title.replace("[premium]", "");
         isPremium = true;
       }
-      
+
       return {
         title,
         link,
@@ -112,7 +93,6 @@ export default {
         let article = this.getArticle(item);
         articles.push(article);
       });
-      console.log(articles);
       return articles;
     },
     openLink(article) {
@@ -132,11 +112,13 @@ export default {
   box-sizing: border-box;
   height: 100%;
 }
+
 ul {
   width: 100vw;
   padding: 20px;
   box-sizing: border-box;
 }
+
 .article {
   background: rgba(212, 212, 212, 0.081);
   cursor: pointer;
@@ -148,9 +130,10 @@ ul {
   padding: 10px 7px;
   transition: 0.2s linear;
   color: white;
-  font-family: "SF UI Display", sans-serif;
+  font-family: 'SF UI Text', sans-serif;
   align-items: center;
 }
+
 .minimalArticle {
   border-bottom: none;
   margin-bottom: 15px;
@@ -158,52 +141,63 @@ ul {
   grid-template-columns: 1fr;
   border-left: white 2px solid;
 }
+
 .minimalArticle::before,
-.minimalArticle > .time {
+.minimalArticle>.time {
   display: none;
 }
+
 .article:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
+
 .article::before {
   content: "‣";
   padding: 0 5px;
 }
+
 .title {
   text-align: left;
 }
+
 .hasOpened {
   opacity: 0.4;
 }
+
 .hasOpened::after {
   content: " ☑️";
   color: red;
 }
+
 .time {
   transform: scale(0.5);
 }
+
 .providerInfo {
   display: grid;
   padding: 0 20px;
   grid-template-columns: 50px auto 40px;
   align-items: center;
 }
+
 .isMinimalmode {
   grid-template-columns: auto 40px !important;
   justify-content: space-between;
 }
+
 .providerName {
   color: white;
   text-align: left;
   font-weight: 700;
   font-size: 1.3em;
 }
+
 .providerLogo,
 .providerCountry {
   max-height: 40px;
 }
 
 li.article.minimalArticle.isPremium {
-    border-right: 2px dotted #ffc538;
+  border-right: 2px dotted #ffc538;
 }
 </style>

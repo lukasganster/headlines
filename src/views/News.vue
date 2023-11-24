@@ -11,17 +11,10 @@
       <span class="time">{{ time }} Uhr</span>
     </h3>
   </div>
-  <div id="providerGrid" v-if="providerList.length > 0">
-    <Provider
-      v-for="provider in providerList"
-      :key="provider"
-      :rssUrl="provider.rssUrl"
-      :name="provider.name"
-      :isMinimalmode="basicSettings.isMinimalmode"
-      :maxArticles="provider.maxArticles"
-      :logo="provider.logo"
-      :country="provider.country"
-    />
+  <div id="providerGrid" v-if="providerList.length">
+    <Provider v-for="provider in providerList" :key="provider" :rssUrl="provider.rssUrl" :name="provider.name"
+      :isMinimalmode="basicSettings.isMinimalmode" :maxArticles="provider.maxArticles" :logo="provider.logo"
+      :country="provider.country" />
   </div>
   <h2 v-if="providerList.length == 0" style="color: white">
     No providers selected. <br />
@@ -72,6 +65,7 @@ export default {
       if (settings) {
         settings = JSON.parse(settings);
         let selectedProviders = settings.filter((p) => p.selected);
+        console.log(selectedProviders);
         let showProviders = [];
         // eslint-disable-next-line no-useless-escape
         const regex = /^(?:https?:\/\/)?(?:[^@\/\n]+@)?(?:www\.)?([^:\/\n]+)/
@@ -87,8 +81,6 @@ export default {
             }
           });
         });
-        console.log("providerList " + this.providerList);
-        console.log(this.providerList);
         this.providerList = showProviders.sort((a, b) =>
           a.index > b.index ? 1 : -1
         );
@@ -107,39 +99,47 @@ export default {
   border: 0;
   box-sizing: border-box !important;
 }
+
 body {
   height: 100%;
   box-sizing: border-box;
 }
+
 #app {
-  font-family: "SF UI Display", Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'SF UI Text', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 }
+
 #providerGrid {
   display: flex;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
   box-sizing: border-box;
 }
+
 @media screen and (max-width: 650px) {
   * ::-webkit-scrollbar {
     width: 10px;
   }
+
   * ::-webkit-scrollbar-thumb {
     background: rgb(249, 217, 76);
     border-radius: 10px;
     width: 10px;
   }
+
   *::-webkit-scrollbar-track {
     background: rgba(221, 221, 221, 0.046);
     border-radius: 10px;
   }
+
   #providerGrid {
-    height: 80vh;
+    height: 80dvh;
   }
 }
+
 @media screen and (min-width: 650px) {
   #providerGrid {
     width: 90%;
@@ -150,9 +150,11 @@ body {
     margin: 0 auto;
     overflow: scroll;
   }
+
   ul {
     width: auto !important;
   }
+
   .provider {
     margin: 0 !important;
     background-color: rgba(0, 0, 0, 0.06);
@@ -160,6 +162,7 @@ body {
     border-radius: 10px;
   }
 }
+
 @media screen and (min-width: 1000px) {
   #providerGrid {
     grid-template-columns: repeat(3, 1fr);
@@ -168,12 +171,14 @@ body {
 
 .header {
   justify-content: center;
-  height: clamp(15vh, 20vh, 200px);
+  height: clamp(15vh, 20dvh, 200px);
   display: flex;
   flex-flow: column;
 }
+
 h2 span.active {
-  /* background: #1a2a6c; */ /* background: linear-gradient(to right, #ff9966,
+  /* background: #1a2a6c; */
+  /* background: linear-gradient(to right, #ff9966,
 #ff5e62); */
   background: -webkit-linear-gradient(to right, #ffb347, #ffcc33);
   background: linear-gradient(to right, #ffb347, #ffcc33);
@@ -184,17 +189,19 @@ h2 span.active {
   border-bottom-style: solid;
   border-image: linear-gradient(91deg, #ffb247, #ffca33) 1;
 }
+
 h2 span {
   color: rgb(112, 112, 112);
   margin: 0 10px;
   font-weight: 400;
 }
+
 h3 {
   margin-top: 10px;
   color: white;
 }
+
 .date {
   color: rgb(112, 112, 112);
   margin-right: 10px;
-}
-</style>
+}</style>
