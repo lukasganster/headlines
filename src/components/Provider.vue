@@ -86,8 +86,8 @@ export default {
     getArticle(item) {
       let title = item.querySelector("title").textContent;
       const link = item.querySelector("link").textContent;
-      const dateString = item.querySelector("pubDate")
-        ?? item.querySelector("date").textContent;
+      const dateString = item.querySelector("pubDate")?.textContent
+        ?? item.querySelector("date")?.textContent;
       const date = dateString ? moment(dateString) : "";
       const dateFormatted = date ? date.format("HH:mm") : "";
       let isPremium = false;
@@ -112,6 +112,7 @@ export default {
         let article = this.getArticle(item);
         articles.push(article);
       });
+      console.log(articles);
       return articles;
     },
     openLink(article) {
@@ -202,11 +203,7 @@ ul {
   max-height: 40px;
 }
 
-li.article.minimalArticle.isPremium::after {
-    content: '★';
-    color: #ffc538;
-    position: absolute;
-    right: 5px;
-    font-size: 16px;
+li.article.minimalArticle.isPremium {
+    border-right: 2px dotted #ffc538;
 }
 </style>
